@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block tittle %}
+  <tittle>Register</tittle>
+{% endblock tittle %}
+
+{% block body %}
+  {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+
+  <h2 class="text-center my-3">Registration form</h2>
+   <div class="container">
+     <form action='register' method='POST'>
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6" style=" margin-left:300px; ">
+            <label for="inputEmail4">First Name</label>
+            <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" name="firstname">
+            </div>
+            <div class="form-group col-md-6" style=" margin-left:300px; " >
+            <label for="inputPassword4">Last Name</label>
+            <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" name="lastname">
+            </div>
+        </div>
+        <div class="form-group col-md-6" style=" margin-left:300px; ">
+            <label for="inputAddress">username</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="username" name="username">
+        </div>
+        <div class="form-group col-md-6" style=" margin-left:300px; ">
+            <label for="inputAddress2">Email</label>
+            <input type="email" class="form-control" id="inputAddress2" placeholder="Email" name="email">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6" style=" margin-left:300px; ">
+            <label for="inputCity">Password 1</label>
+            <input type="password" class="form-control" id="password1" name="pass1">
+            </div>
+            <div class="form-group col-md-6" style=" margin-left:300px; ">
+            <label for="inputState">password 2</label>
+            <input type="password" class="form-control" id="password2" name="pass2">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-dark my-3" style=" margin-left:300px; ">Sign in</button>
+     </form>
+   </div>
+{% endblock body %}
