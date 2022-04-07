@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block body %}
+<!-- Card -->
+{% for message in messages %}
+ <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div
+  class="bg"
+  style="background-image: url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-repeat: no-repeat; background-size: cover; height:600px;"
+>
+  <div class="card-body text-white">
+    <h5 class="card-title">Welcome To Opus Crawler...!!!</h5>
+    <p class="card-text">
+      For Scraping <b>Social Media</b> first Login your account or if you are not registered. Please register First. 
+    </p>
+    <a href="/login" class="btn btn-outline-light">Login</a>
+  </div>
+</div>
+<!-- Card -->
+
+{% endblock body %}
