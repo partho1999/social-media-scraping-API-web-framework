@@ -19,39 +19,36 @@
         <div class="card-body">
           <div class="container">
             <form action='register' method='POST'>
-                {% csrf_token %}
-                <div class="form-row">
-                  <div class="form-group col-md-6" style=" margin-left:300px; ">
-                    <label for="inputFirstName4">First Name</label>
-                    <input type="text" class="form-control" id="inputFirstName4" placeholder="First Name" name="firstname">
-                  </div>
-                  <div class="form-group col-md-6" style=" margin-left:300px; " >
-                    <label for="inputLastName4">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName4" placeholder="Last Name" name="lastname">
-                  </div>
+              {% csrf_token %}
+              <div class="row">
+                <div class="col">
+                  <label for="siugnupInputFirstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="firstname">
                 </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6" style=" margin-left:300px; ">
-                    <label for="inputUsername4">Username</label>
-                    <input type="text" class="form-control" id="inputUsername4" placeholder="username" name="username">
-                  </div>
-                  <div class="form-group col-md-6" style=" margin-left:300px; ">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
-                  </div>
+                <div class="col">
+                  <label for="signupInputLastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lastname">
                 </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6" style=" margin-left:300px; ">
-                    <label for="inputpassword1">Password</label>
-                    <input type="password" class="form-control" id="inputpassword1" name="pass1">
-                  </div>
-                  <div class="form-group col-md-6" style=" margin-left:300px; ">
-                    <label for="inputpassword2">Confirm password</label>
-                    <input type="password" class="form-control" id="inputpassword2" name="pass2">
-                  </div>
-                </div>
-                
-                <button type="submit" class="btn btn-outline-dark my-3" style=" margin-left:300px; ">Register</button>
+              </div>
+              <div class="mb-3">
+                <label for="signupInputusername" class="form-label">Username</label>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username"  name="username">
+              </div>
+              <div class="mb-3">
+                <label for="signupInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="Email address" id="signupInputEmail1" aria-describedby="emailHelp" name="email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="signupInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Password" id="signupInputPassword1" name="pass1">
+              </div>
+              <div class="mb-3">
+                <label for="CexampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" placeholder="Confirm Password" id="signupInputCPassword" name="pass2">
+              </div>
+              
+              <button type="submit" class="btn btn-outline-dark">Register</button>
             </form>
           </div>
         </div>

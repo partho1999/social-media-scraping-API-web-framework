@@ -19,21 +19,16 @@
         <div class="container">
           <form action='login' method='POST'>
             {% csrf_token %}
-            <div class="form-row">
-                <div class="form-group col-md-6" style=" margin-left:300px; ">
-                  <label for="inputAddress">Username</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Username" name="username">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6" style=" margin-left:300px; ">
-                  <label for="inputCity">Password</label>
-                  <input type="password" class="form-control" id="password1" placeholder="Password" name="password">
-                </div>
-            </div>
-          
-            <button type="submit" class="btn btn-outline-dark my-3" style=" margin-left:300px; ">Login</button>
-          </form>
+             <div class="mb-3">
+               <label for="signinInputusername" class="form-label">Username</label>
+               <input type="text" class="form-control" placeholder="First name" aria-label="First name"  name="username">
+             </div>
+             <div class="mb-3">
+               <label for="exampleInputPassword1" class="form-label">Password</label>
+               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+             </div>
+             <button type="submit" class="btn btn-outline-dark">Login</button>
+           </form>
         </div>
       </div>
     </div>  

@@ -40,7 +40,7 @@
               
                <li class="nav-item">
                   <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{% url 'profile' user_id=user.id %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{request.user.UserProfile.profile_img.url}}" class="rounded-circle" style="width:60%; height:30px"><b class="caret"></b></a>
+                    <a class="nav-link dropdown-toggle" href="{% url 'profile' user_id=user.id %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{request.user.UserProfile.profile_img.url}}" class="rounded-circle" style="width:30px; height:30px"><b class="caret"></b></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="{% url 'profile' user_id=user.id %}">{{request.user}}</a>
                       <div class="divider dropdown-divider"></div>

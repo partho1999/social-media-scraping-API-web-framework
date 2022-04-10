@@ -1,4 +1,4 @@
-from . tokens import generate_token
+
 import os
 import json
 import pandas as pd
@@ -111,5 +111,6 @@ def sentiment_analysis():
     df_score = df['Score'].tolist()
 
     print(df_label)
-    print(df_score)    
+    print(df_score)   
+    return df_label 
     
