@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock title %}
+{% block body %}
+<style>
+    table {
+      table-layout: fixed;
+      width: 720px;
+      border: 1px solid red;
+    }
+    
+    td {
+      border: 1px solid blue;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  
+  </style>
+    {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>Message:</strong> {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
+    <div id = "facebook"class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Download</h1>
+            </div>
+            <div class="card-body">
+                <p>Hey.. <b>{{request.user}}</b>, Your search results for <b>{{keyword}}</b> profile data can be dowloaded from here...!<a href="{{pro_link}}">Download</a></p>
+                <div class="row justify-content-center container">
+                    <table>
+                        
+                        <tr>
+                            <td>Serial No.</td>
+                            <td>Item</td>
+                            <td>Values</td> 
+                        </tr>
+                        
+                       
+                        <!-- jinja2 Technique -->
+                        <tr>
+                            {% if f %}  
+                            {% for i in f %}
+
+                            <tr>
+                                <td style="width:73px">{{i.SL}}</td>
+                                <td style="width:150px">{{i.index}}</td>
+                                <td>{{i.values}}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tr>
+                        
+                    </table>
+                </div>
+                <br>
+                <br>
+                <p>Hey..! <b>{{request.user}}</b>You can download the CSV file from here <a href="{{post_link}}">Download</a> . To get the Images cilck <a href="{{pro_img_d_link}}">here</a></p>
+                <div class="row justify-content-center container">
+                    <table>
+                        
+                        <tr>
+                            <td>Serial No.</td>
+                            <td>ID_Name</td>
+                            <td>Posts</td> 
+                            <td>Img_Link</td>
+                        </tr>
+                        
+                       <tr>
+                            
+                        <!-- jinja2 Technique -->
+                        {% if f %}  
+                        {% for i in j %}
+
+                            <tr>
+                                <td style="width:73px">{{i.SL}}</td>
+                                <td style="width:100px">{{i.ID_Name}}</td>
+                                <td>{{i.Pro_Posts}}</td>
+                                <td  style="width:130px"><a href="#{{i.img_link}}">{{i.img_link}}</a></td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        
+                       </tr>
+                    </table>
+                </div>
+                
+               
+
+                
+            </div>
+        
+        
+        </div>
+    </div>
+
+
+{% endblock body %}

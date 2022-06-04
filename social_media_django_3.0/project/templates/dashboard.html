@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+
+{% block body %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+    
+
+    <div id = "facebook"class="container">
+        <div class="card">
+        <div class="card-header">
+        <h1>Dashboard</h1>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                  <div class="col" style="width: 60%;  height: 40px;">
+                    <h3 class="panel-title">Sentiment Of Texts</h3>
+                    <div id="container" class="row container" style="width: 50%;">
+                        <canvas id="pie-chart"></canvas>
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script><script>
+                        var config = {
+                        type: 'pie',
+                        data: {
+                            datasets: [{
+                            data:{{avg}},
+                            backgroundColor: [
+                                '#ff0000', '#0000ff', '#4cff4c', '#ff00ff', '#0000ff', '#ff0080', '#73ffff', '#5c26ff', '#002db3' 
+                            ],
+                            label: 'Population'
+                            }],
+                            labels: ["Negative", "Neutral", "Positive"]
+                        },
+                        options: {
+                            responsive: true
+                        }
+                        };
+                    
+                        window.onload = function() {
+                        var ctx = document.getElementById('pie-chart').getContext('2d');
+                        window.myPie = new Chart(ctx, config);
+                        };
+                    </script>
+                  </div>
+                  <div class="col" style="width: 50%; ">
+                    <h3 class="panel-title">Top 10 Keywords</h3>
+                    <div id="container" style="width: 75%;">
+                        <canvas id="bar-chart"></canvas>
+                    </div>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script><script>
+                    // Bar chart
+                        new Chart(document.getElementById("bar-chart"), {
+                            type: 'bar',
+                            data: {
+                            labels:{{df_label | safe}},
+                            datasets: [
+                                {
+                                label: "Population (millions)",
+                                backgroundColor: ['#ff0000', '#0000ff', '#4cff4c', '#73ffff', '#5c26ff', '#002db3', '#ffff26', '#4cff4c', '#ff00ff'],
+                                data:{{df_score | safe}}
+                                }
+                            ]
+                            },
+                            options: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Top 10 Keywords'
+                            }
+                            }
+                        });
+                    </script>
+                  </div>
+                </div>
+
+            </div>
+
+
+            <br>
+            <div class="container">
+                <div class="row justify-content-center container">
+                    <div class="col-sm-6" style="text-align:center;">
+                        <!-- Column content -->
+                        <h3 calss="text-center">Most Used Words</h3><br>
+
+                        <img src="{% static 'img/image.png' %}" alt="WordCloud" style="width:400px; height:400px;">
+                    </div>
+                </div>
+            </div>       
+
+        </div>
+        
+        
+    </div>
+    </div>
+{% endblock body %}
+
+{}

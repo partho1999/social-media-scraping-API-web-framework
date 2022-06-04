@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block tittle %}
+  <tittle>Upload-file</tittle>
+{% endblock tittle %}
+<link rel="stylesheet" href="file_upload.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+
+
+{% block body %}
+{% for message in messages %}
+ <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+<div class="container ">
+    <div class="container card" style="margin-top: 50px; padding: 30px">
+        <div class="row justify-content-center container">
+            <div class="content" style="text-align:center;">
+                  <h1> Please upload your csv file </h1> <br>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row content" style="    padding-left: 100px; padding-right: 10px;">
+                            <div class="col"> <br>
+                                <input type="file" name="document" id="document" required="required">
+                            </div>
+    
+                             <div class="col"> <br>
+                                <button id="submit" class="btn btn-outline-dark"> Upload</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
+</div>
+{% include 'logo.html' %}
+{% endblock body %}

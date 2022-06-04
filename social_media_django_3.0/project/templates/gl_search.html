@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Google-Search{% endblock title %}
+
+{% block body %}
+<h2 align="Center" style="color:black;">
+   Search For Scraping
+</h2>
+
+<!-- Search Bar -->
+<form action="/google_search" method="POST">
+   {% csrf_token %}
+
+   <input class="w-75 h-32 m-3 p-3" type="text"  name="q" placeholder="Search">
+   <input type="submit" class="btn btn-outline-dark btn m-3 p-3 px-5" value="Search">
+</form> 
+
+{% include 'logo.html' %}
+{% endblock body %}

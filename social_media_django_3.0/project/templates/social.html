@@ -1,0 +1,65 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Media | facebook scrapper</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+  <link rel="stylesheet" href="static/style.css">
+
+</head>
+<body>
+  
+  {% include 'base.html'  %}
+ <!-- partial:index.partial.html -->
+
+  <div class="social-menu">
+    <h1 style="color: white;">Select The Media</h1>
+    <ul>
+      <li><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="/twitter_search"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="/youtube_search"><i class="fa fa-youtube"></i></a></li>
+      <li><a href="/google_search"><i class="fa fa-google"></i></a></li>
+    </ul>
+  </div>
+ <!-- partial -->
+ <!-- Button trigger modal -->
+{% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> {% endcomment %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Select Your Choice</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Facebok ID
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Facebok Posts
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+        <a class="btn btn-primary" href="/facebook_search" role="button">Next</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</body>
+</html>

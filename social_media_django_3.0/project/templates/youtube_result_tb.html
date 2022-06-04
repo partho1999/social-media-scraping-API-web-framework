@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Download{% endblock title %}
+{% block body %}
+
+    <style>
+        table {
+        table-layout: fixed;
+        width: 720px;
+        border: 1px solid red;
+        }
+        
+        td {
+        border: 1px solid blue;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        }
+    
+    </style>
+
+    {% for message in messages %}
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>Message:</strong> {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+    {% endfor %}
+
+    <div class="container">
+        
+        <p>Hey..! <b>{{request.user}}</b>You can download this file from here...!<a href="{{download_link}}">Download</a></p>
+                
+        <table>
+            <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Channel</th>
+                <th>Views</th>
+                <th>Snippet</th>
+                <th>Extensions</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <!-- jinja2 Technique -->
+            {% if f %}  
+            {% for i in f %}
+
+            <tr>
+                <td>{{i.SL}}</td>
+                <td>{{i.title}}</td>
+                <td><a href="#{{i.link}}">{{i.link}}</a></td>
+                <td>{{i.channel}}</td>
+                <td>{{i.Views}}</td>
+                <td>{{i.snippet}}</td>
+                <td>{{i.extensions}}</td>
+                
+            </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    
+    </div>
+
+
+{% endblock body %} -->

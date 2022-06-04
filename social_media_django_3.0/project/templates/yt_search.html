@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}YouTube-Search{% endblock title %}
+
+{% block body %}
+<h2 align="Center" class="yt_title">
+   Search For Scraping
+</h2>
+
+<!-- Search Bar -->
+<form action="/youtube_search" method="POST">
+   {% csrf_token %}
+
+   <input class="w-75 h-32 m-3 p-3" type="text"  name="q" placeholder="Search">
+   <input type="submit" class="btn btn-outline-dark btn m-3 p-3 px-5" value="Search">
+</form> 
+{% include 'logo.html' %}
+{% endblock body %}
